@@ -10,15 +10,15 @@ var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
  console.log('%s listening to %s', server.name, server.url);
 });
-// Create chat bot
+// Create chat connector for communicating with the Bot Framework Service
 var connector = new builder.ChatConnector({
- appId: 'de47216a-2f32-4db7-b89a-ceeae7ab5128',
- appPassword: 'pazkIFAI593ugeIRU93-^|~'
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword
 });
 var bot = new builder.UniversalBot(connector);
 
 // If a Post request is made to /api/messages on port 3978 of our local server, then we pass it to the bot connector to handle
-server.get('/api/messages', connector.listen());
+server.post('/api/messages', connector.listen());
 // =========================================================
 // Bots Dialogs 
 // =========================================================
