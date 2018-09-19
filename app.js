@@ -9,7 +9,6 @@ function () {
 // chat connector for communicating with the Bot Framework Service
 var microsoftId = process.env.MICROSOFT_APP_ID || '2173fcca-27f3-4eaf-8da4-1a09be80b110';
 var microsoftPassword = process.env.MICROSOFT_APP_PASSWORD || 'ltitIAYRS83{}|jfaAD924}';
-
 var connector = new builder.ChatConnector({     
     appId: microsoftId,     
     appPassword: microsoftPassword
