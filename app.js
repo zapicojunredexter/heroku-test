@@ -18,6 +18,7 @@ var connector = new builder.ChatConnector({
 // server.post('/api/messages', connector.listen());  
 server.post('/api/messages', (req, res, cb)=>{
   connector.listen();
+  res.status(204)
   res.send("requestes!" + JSON.stringify(connector));
   //return cb();
 
